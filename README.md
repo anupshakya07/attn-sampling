@@ -1,1 +1,3 @@
-# attn-sampling
+# Scaling up using Attention
+
+#### In this project, we use the famous attention mechanism to discover symmetries in the dataset and use it to our advantage sample a small but highly informative training samples to efficiently train an ML model with high accuracy. More specifically, we identify the most important regions in the token in the output sequence and prune the less important ones. We use non-parametric clustering to get the most optimal set of clusters, which we train iteratively by conditioning it on a similarity metric. We sample from the clusters and train an attention model.
