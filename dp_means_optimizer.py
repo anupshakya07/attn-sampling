@@ -323,7 +323,7 @@ if __name__ == "__main__":
 
     parser.add_argument('-batch_size', type=int, default=10)
 
-    parser.add_argument('-save_mode', type=str, default='all')
+    parser.add_argument('-save_mode', type=str, default='best')
 
     parser.add_argument('-warmup_steps', type=int, default=4000)
 
@@ -357,6 +357,7 @@ if __name__ == "__main__":
         print("Similarity Score Overall -> ", similarity_score)
         # reiterate = False
         if similarity_score <= previous_similarity_score or lambda_val <= 6:
+            print("Convereged with LAMBDA = ", lambda_val)
             reiterate = False
         else:
             lambda_val = lambda_val - 1

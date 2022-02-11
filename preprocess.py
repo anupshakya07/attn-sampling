@@ -10,6 +10,7 @@ EMBEDDING_DIMENSION = 300
 def main(opt):
     data_processor = DataPreprocessor(input_file_path=opt.dataset_path)
     data_processor.analyze_dataset()
+    pickle.dump(data_processor, open("output/processed_data.pkl", "wb"))
     kc_maps = dict()
     if opt.construct_vocab:
         index_kc_map = dict([(index+5, kc) for index, kc in enumerate(data_processor.unique_kcs)])
