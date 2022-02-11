@@ -4,6 +4,7 @@ import pickle
 import torch
 from transformer.Models import Transformer
 from transformer.Translator import Translator
+from src.data_preprocessor import DataPreprocessor
 import numpy as np
 import argparse
 from tqdm import tqdm
