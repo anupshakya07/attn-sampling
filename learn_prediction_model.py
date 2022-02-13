@@ -14,8 +14,9 @@ def main(options):
     one_hot_encoder.train(data_processor.unique_kcs)
 
     model = NsClusteredModel(200, len(data_processor.unique_kcs), options.dataset, embedding_model, one_hot_encoder)
-    model.generate_training_sample(data_processor.unique_students, data_processor.unique_problems, 10, 100)
-    model.train_model(num_epochs=10, batch_size=10)
+    model.generate_training_sample(data_processor.unique_students, data_processor.unique_problems, options.num_students,
+                                   options.num_problems)
+    model.train_model(num_epochs=options.epoch, batch_size=options.batch_size)
 
     model.setup_inference_model()
     model.evaluate_training_accuracy(100)
@@ -35,6 +36,14 @@ if __name__ == "__main__":
 
     parser.add_argument('-embedding_model', type=str,
                         default="embeddings-models/embedding-models/pruned-embedding-model-75-percent-retained")
+
+    parser.add_argument('-epoch', type=int, default=10)
+
+    parser.add_argument('-batch_size', type=int, default=10)
+
+    parser.add_argument('-num_students', type=int, default=10)
+
+    parser.add_argument('-num_problems', type=int, default=100)
 
     opt = parser.parse_args()
 
