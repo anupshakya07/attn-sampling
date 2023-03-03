@@ -3,8 +3,6 @@
 #  Base Class for pre-processing the dataset
 #
 #  Contains built-in functions to analyze the datsets from KDD Cup Challenge
-#
-#  Developed by : Anup Shakya (anupshakya07@gmail.com)
 
 import time
 import pandas as pd
