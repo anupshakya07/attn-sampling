@@ -16,7 +16,7 @@ def get_trimmed_kcs(kc_list, kc_cfa_model, device, index_kc_map, clip_keys, clip
     kc_list.append(4)
     kc_tensor = torch.tensor([kc_list], dtype=torch.int64).to(device)
     prediction, dec_enc_attentions = kc_cfa_model.translate_sentence(kc_tensor)
-    attn_numpy = dec_enc_attentions[0][0][1:, 1:-1].cpu().detach().numpy()
+    attn_numpy = dec_enc_attentions[0][1:, 1:-1].cpu().detach().numpy()
     trimmed_kcs_dict = dict()
 
     for clip, key in zip(clip_list, clip_keys):
@@ -192,7 +192,7 @@ def main(options):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-use_gpu', type=bool, default=True)
+    parser.add_argument('-use_gpu', type=bool, default=False)
 
     parser.add_argument('-clip_kcs', type=bool, default=True)
 
