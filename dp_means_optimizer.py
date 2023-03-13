@@ -26,6 +26,8 @@ EOS_TOKEN = 4  # End of sentence token
 
 def iterate(std_vectors, prob_vectors, embedding_model, kc_index_map, device, LAMBDA, opt):
     std_cluster, prob_cluster = cluster(std_vectors, prob_vectors, LAMBDA)
+    pickle.dump(std_cluster, open("output/student_cluster.pkl", "wb"))
+    pickle.dump(prob_cluster, open("output/problem_cluster.pkl", "wb"))
 
     std_samples = generate_samples(std_cluster, 50)  # tested with 10 for the first iteration
     students = words_from_embeddings(std_samples, embedding_model)
@@ -199,8 +201,8 @@ def iterate(std_vectors, prob_vectors, embedding_model, kc_index_map, device, LA
             cluster_attention_scores[cluster_key] = mean
     print("Clustering Score Mean = ", np.array(overall_clustering_scores).mean())
     print("Clustering Similarity Score Mean = ", np.array(overall_clustering_attention_scores).mean())
-    pickle.dump(cluster_similarity_scores, file=open("output/cluster_similarity_scores_mathia_01_21_2022.pkl", "wb"))
-    pickle.dump(cluster_attention_scores, file=open("output/cluster_attention_scores_mathia_01_21_2022.pkl", "wb"))
+    pickle.dump(cluster_similarity_scores, file=open("output/cluster_similarity_scores.pkl", "wb"))
+    pickle.dump(cluster_attention_scores, file=open("output/cluster_attention_scores.pkl", "wb"))
     return np.array(overall_clustering_scores).mean(), np.array(overall_clustering_attention_scores).mean()
 
 
