@@ -84,8 +84,10 @@ The implementations for DP-means and Transformers were taken from the following 
 # Citing
 
 Please consider citing.
+
 @inproceedings{shakya2023, 
-author = {Anup Shakya and Vasile Rus and Deepak Venugopal}, 
-title = {Scalable and Equitable Math Problem Solving Strategy Prediction in Big Educational Data},
-booktitle = {Sixteenth International Conference on Educational Data Mining 2023}, 
-year = {2023}}
+               author = {Anup Shakya and Vasile Rus and Deepak Venugopal}, 
+               title = {Scalable and Equitable Math Problem Solving Strategy Prediction in Big Educational Data},
+               booktitle = {Sixteenth International Conference on Educational Data Mining 2023}, 
+               year = {2023}
+}
