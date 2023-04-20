@@ -1,6 +1,8 @@
-# Attention-based Strategy Model
+# Scalable and Equitable Math Problem Solving Strategy Prediction in Big Educational Data
 
 <!--- #### In this project, we use the famous attention mechanism to discover symmetries in the dataset and use it to our advantage to sample a small but highly informative set of training samples to efficiently train an ML model with high accuracy. More specifically, we identify the most important regions/tokens in the output sequence and prune the less important ones. We use non-parametric clustering to get the most optimal set of clusters, which we train iteratively by conditioning it on a similarity metric. We sample from the clusters and train an attention model. The attention model in turn gives the important regions for every strategy in the dataset. We learn new embeddings based on this and train the strategy prediction model. Based on the mastery, we predict the strategy and based on the strategies, we modify the mastery model. -->
+# Abstract
+Understanding a student's problem-solving strategy can have a significant impact on effective math learning using Intelligent Tutoring Systems (ITSs) and Adaptive Instructional Systems (AISs). For instance, the ITS/AIS can better personalize itself to correct specific misconceptions that are indicated by incorrect strategies, specific problems can be designed to improve strategies and frustration can be minimized by adapting to a student's natural way of thinking rather than trying to fit a standard strategy for all. While it may be possible for human experts to identify strategies manually in classroom settings with sufficient student interaction, it is not possible to scale this up to big data. Therefore, we leverage advances in Machine Learning and AI methods to perform scalable strategy prediction that is also fair to students at all skill levels. Specifically, we develop an embedding called MVec where we learn a representation based on the mastery of students. We then cluster these embeddings with a non-parametric clustering method where each cluster contains instances that have approximately symmetrical strategies. The strategy prediction model is trained on instances sampled from these clusters ensuring that we train the model over diverse strategies. Using real world large-scale student interaction datasets from MATHia, we show that our approach can scale up to achieve high accuracy by training on a small sample of a large dataset and also has predictive equality, i.e., it can predict strategies equally well for learners at diverse skill levels.
 
 # Requirements
 - Python 3.6
@@ -78,3 +80,12 @@ learn_prediction_model.py -dataset "dataset/bridge_to_algebra_2008_2009/sample_b
 The implementations for DP-means and Transformers were taken from the following source:
 - https://github.com/DrSkippy/Python-DP-Means-Clustering
 - https://github.com/jadore801120/attention-is-all-you-need-pytorch
+
+# Citing
+
+Please consider citing.
+@inproceedings{shakya2023, 
+author = {Anup Shakya and Vasile Rus and Deepak Venugopal}, 
+title = {Scalable and Equitable Math Problem Solving Strategy Prediction in Big Educational Data},
+booktitle = {Sixteenth International Conference on Educational Data Mining 2023}, 
+year = {2023}}
