@@ -48,7 +48,7 @@ dp_means_optimizer.py -dataset "dataset/bridge_to_algebra_2008_2009/sample_bridg
 
 ### 3. Prune the weak relations and relearn the vector embeddings based on attention scores
 ```
-prune_relations.py -dataset "dataset/bridge_to_algebra_2008_2009/sample_bridge_to_algebra_2008_2009_train.txt" -data_path "output/tokenized_data_BOS_EOS.pkl" - embedding_model "embeddings-models/gensim-bridge-to-algebra-embedding-model" -use_gpu=True -clip_kcs=True -prune_embeddings=True -train_emmbeddings=True
+prune_relations.py -dataset "dataset/bridge_to_algebra_2008_2009/sample_bridge_to_algebra_2008_2009_train.txt" -data_path "output/tokenized_data_BOS_EOS.pkl" -embedding_model "embedding-models/gensim-bridge-to-algebra-embedding-model" -use_gpu=True -clip_kcs=True -prune_embeddings=True -train_embeddings=True
 ```
 
 #### Configurable parameters for prune_relations.py:
