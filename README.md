@@ -5,14 +5,14 @@
 Understanding a student's problem-solving strategy can have a significant impact on effective math learning using Intelligent Tutoring Systems (ITSs) and Adaptive Instructional Systems (AISs). For instance, the ITS/AIS can better personalize itself to correct specific misconceptions that are indicated by incorrect strategies, specific problems can be designed to improve strategies and frustration can be minimized by adapting to a student's natural way of thinking rather than trying to fit a standard strategy for all. While it may be possible for human experts to identify strategies manually in classroom settings with sufficient student interaction, it is not possible to scale this up to big data. Therefore, we leverage advances in Machine Learning and AI methods to perform scalable strategy prediction that is also fair to students at all skill levels. Specifically, we develop an embedding called MVec where we learn a representation based on the mastery of students. We then cluster these embeddings with a non-parametric clustering method where each cluster contains instances that have approximately symmetrical strategies. The strategy prediction model is trained on instances sampled from these clusters ensuring that we train the model over diverse strategies. Using real world large-scale student interaction datasets from MATHia, we show that our approach can scale up to achieve high accuracy by training on a small sample of a large dataset and also has predictive equality, i.e., it can predict strategies equally well for learners at diverse skill levels.
 
 # Requirements
-- Python 3.6
-- gensim 3.x
-- Tensorflow 2.x
+- Python 3.8
+- gensim 3.8.3
+- Tensorflow 2.6.0
 - keras 2.6.0
-- torch 1.7.1
-- pandas
+- torch 1.13.1
+- pandas 1.3.4
 - tqdm
-- scikit-learn
+- scikit-learn 1.6.1
 
 # How to use this code
 
@@ -64,7 +64,7 @@ prune_relations.py -dataset "dataset/bridge_to_algebra_2008_2009/sample_bridge_t
 ### 4. Learn the strategy prediction model
 
 ```
-learn_prediction_model.py -dataset "dataset/bridge_to_algebra_2008_2009/sample_bridge_to_algebra_2008_2009_train.txt" -test_file_path "dataset/bridge_to_algebra_2008_2009/sample_bridge_to_algebra_2008_2009_test.txt" -embedding_model "embeddings-models/embedding-models/pruned-embedding-model-75-percent-retained" -epoch 10 -batch_size 10 -num_students 10 -num_problems 100
+learn_prediction_model.py -dataset "dataset/bridge_to_algebra_2008_2009/sample_bridge_to_algebra_2008_2009_train.txt" -test_file_path "dataset/bridge_to_algebra_2008_2009/sample_bridge_to_algebra_2008_2009_test.txt" -embedding_model "embedding-models/pruned-embedding-model-75-percent-retained" -epoch 10 -batch_size 10 -num_students 10 -num_problems 100
 ```
 #### Configurable Parameters for learn_prediction_model.py:
 - dataset - the path to the dataset file
